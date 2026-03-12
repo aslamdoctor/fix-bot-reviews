@@ -1,11 +1,12 @@
 ---
-name: review-pr
+name: fix-bot-reviews
 description: >
-  Fetch and address bot review comments on a GitHub PR from Cursor Bugbot, Sentry, Copilot,
-  Gemini Code Assist, and other CI bots. Use when the user says "review pr", "fix pr comments",
-  "address bot reviews", "fix review comments", "handle pr feedback", "resolve pr comments",
-  or wants to process automated review feedback on a pull request. Accepts optional PR URL or
-  number as argument; defaults to the PR for the current git branch.
+  Fetch and fix bot review comments on a GitHub PR from Cursor Bugbot, Sentry, Copilot,
+  Gemini Code Assist, and other CI bots. Use when the user says "fix bot reviews",
+  "fix pr comments", "address bot reviews", "fix review comments", "handle pr feedback",
+  "resolve pr comments", "resolve bot comments", or wants to process automated review
+  feedback on a pull request. Accepts optional PR URL or number as argument; defaults to
+  the PR for the current git branch.
 ---
 
 # Review PR Bot Comments
@@ -17,9 +18,9 @@ Address automated review comments from CI bots on a GitHub PR.
 ## Usage
 
 ```
-/review-pr                    # PR for current branch
-/review-pr 1234               # PR #1234
-/review-pr https://github.com/owner/repo/pull/1234
+/fix-bot-reviews                    # PR for current branch
+/fix-bot-reviews 1234               # PR #1234
+/fix-bot-reviews https://github.com/owner/repo/pull/1234
 ```
 
 ## Workflow
@@ -30,7 +31,7 @@ Address automated review comments from CI bots on a GitHub PR.
 2. If no PR specified, detect from current branch via `gh pr view --json number`.
 3. Run the fetch script:
    ```bash
-   bash ~/.claude/skills/review-pr/scripts/fetch_reviews.sh [--pr NUMBER] [--repo OWNER/REPO]
+   bash ~/.claude/skills/fix-bot-reviews/scripts/fetch_reviews.sh [--pr NUMBER] [--repo OWNER/REPO]
    ```
 4. Parse the JSON output. Each comment has: `id`, `bot`, `path`, `line`, `body`, `url`, `diff_hunk`, `in_reply_to_id`.
 5. Filter out reply comments (`in_reply_to_id != null`) — these are threaded replies, not top-level reviews.

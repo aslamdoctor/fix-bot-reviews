@@ -1,4 +1,4 @@
-# review-pr
+# fix-bot-reviews
 
 A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that fetches bot review comments from a GitHub PR, helps you fix or skip each one, and automatically replies on the PR marking them resolved.
 
@@ -14,15 +14,15 @@ A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that fetch
 ## Install
 
 ```bash
-claude install aslamdoctor/review-pr
+claude install aslamdoctor/fix-bot-reviews
 ```
 
 ## Usage
 
 ```
-/review-pr                    # PR for current branch
-/review-pr 1234               # PR #1234
-/review-pr https://github.com/owner/repo/pull/1234
+/fix-bot-reviews                    # PR for current branch
+/fix-bot-reviews 1234               # PR #1234
+/fix-bot-reviews https://github.com/owner/repo/pull/1234
 ```
 
 Or just say things like:
